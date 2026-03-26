@@ -41,6 +41,96 @@ Agri-Rent bridges this gap by providing a shared platform where:
 * CSS3
 * JavaScript
 
+## Backend
+
+The backend of Agri-Rent is responsible for handling business logic, managing user authentication, processing bookings, and coordinating communication between the frontend and database.
+
+### Responsibilities
+
+* User authentication (Admin, Owner, Renter)
+* Equipment listing and management
+* Booking and availability control
+* Notification handling for unavailable equipment
+* Admin monitoring and data management
+
+### Suggested Technologies
+
+* Node.js
+* Express.js
+
+---
+
+## Database
+
+The database is used to store and manage all application data including users, equipment, bookings, and notifications.
+
+### Data Entities
+
+* Users (Admin, Owners, Renters)
+* Equipment details (name, type, availability, pricing)
+* Bookings (date, time, user, equipment)
+* Notifications (availability alerts)
+
+### Suggested Database Options
+
+* MongoDB (NoSQL, flexible schema)
+
+---
+
+## API Design
+
+The backend exposes RESTful APIs to interact with the frontend application.
+
+### Example Endpoints
+
+#### Authentication
+
+* POST /api/auth/register
+* POST /api/auth/login
+
+#### Equipment
+
+* GET /api/equipment
+* POST /api/equipment
+* PUT /api/equipment/:id
+* DELETE /api/equipment/:id
+
+#### Booking
+
+* POST /api/book
+* GET /api/bookings
+
+#### Notifications
+
+* POST /api/notify
+* GET /api/notifications
+
+---
+
+## API Keys and Environment Variables
+
+Sensitive data such as API keys and configuration settings should not be stored directly in the source code. Instead, use environment variables.
+
+### Example (.env file)
+
+PORT=5000
+MONGO_URI=your_database_connection_string
+JWT_SECRET=your_secret_key
+GEMINI_API_KEY=your_gemini_api_key
+
+### Important Notes
+
+* Do not upload the .env file to GitHub
+* Add .env to .gitignore
+* Keep API keys secure and private
+
+---
+
+## Integration
+
+The frontend communicates with the backend using HTTP requests (REST APIs). The backend processes these requests, interacts with the database, and returns appropriate responses.
+
+
 ### Libraries and Tools
 
 * React Router DOM (routing)
